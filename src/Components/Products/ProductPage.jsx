@@ -24,11 +24,15 @@ function ProductPage() {
 
   const handleChange = (e) => {
     if(e.target.value == "5"){
-      setLimit = 5
+      setLimit(limit)
     }
     else if(e.target.value == "10"){
-      setLimit = 10
+      setLimit(limit+5)
     }
+    else if(e.target.value == "15"){
+      setLimit(limit+10)
+    }
+    
   }
 
   return (
@@ -49,6 +53,7 @@ function ProductPage() {
         <select data-testid="limit-select" onChange={handleChange}>
           <option value="5">5</option>
           <option value="10">10</option>
+          <option value="15">15</option>
         </select>
       </div>
       <Pagination page={page} setPage={setPage}/>
