@@ -6,14 +6,14 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 function ProductPage() {
-  const [data, setData] = useState([]);
+  const [products, setProducts] = useState([]);
   const [sort, setSort] = useState("asc");
   const [page,setPage] = useState(1)
   const [limit,setLimit] = useState(5)
 
   const handlegetProducts = () => {
     return getProducts({sort,page,limit}).then((res) => {
-      setData(res.data);
+      setProducts(res.data);
       console.log(res);
     });
   };
@@ -45,7 +45,7 @@ function ProductPage() {
       >
         Sort low to high
       </button>
-      <button data-testid="high-to-low" onClick={() => setSort("desc")}>
+      <button data-testid="high-to-low" disabled={sort === "desc"} onClick={() => setSort("desc")}>
         Sort high to low
       </button>
       <div>
@@ -58,7 +58,7 @@ function ProductPage() {
       </div>
       <Pagination page={page} setPage={setPage}/>
       {/* map products */}
-      <ProductList data={data} />
+      <ProductList products={products} />
     </div>
   );
 }

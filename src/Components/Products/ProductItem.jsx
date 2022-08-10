@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProductItem = ({id,image,title,price,category}) => {
+const ProductItem = ({ id, image, title, price, category }) => {
   return (
     <div
       data-testid="product-item"
@@ -15,9 +15,9 @@ const ProductItem = ({id,image,title,price,category}) => {
         flexDirection: "column",
       }}
     >
-      <img data-testid="product-image" height="100px" src={image} alt=""/>
+      <img data-testid="product-image" height="100px" src={image} alt={title} />
       <b data-testid="product-title">{title}</b>
-      <span data-testid="product-price">₹{price}</span>
+      <span data-testid="product-price">₹ {price}</span>
       <div style={{ display: "flex" }}>
         <b data-testid="product-category">{category}</b>
       </div>
